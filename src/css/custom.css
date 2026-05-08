@@ -1,0 +1,98 @@
+/**
+ * Enclz documentation theme — derived from the webapp brand kit.
+ * Dark-first; light mode kept as a polite fallback rather than a primary surface.
+ *
+ * Tokens (see webapp tailwind.config.js):
+ *   bg          #07080c   surface     #0f1117   card        #131520
+ *   border      #1e2235   accent      #7c3aed   accent-lt   #a78bfa
+ *   text        #f1f5f9   text-2nd    #94a3b8   text-muted  #4b5563
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Light mode — readable but not the canonical surface */
+  --ifm-color-primary: #6d28d9;
+  --ifm-color-primary-dark: #5b21b6;
+  --ifm-color-primary-darker: #4c1d95;
+  --ifm-color-primary-darkest: #3b0764;
+  --ifm-color-primary-light: #7c3aed;
+  --ifm-color-primary-lighter: #8b5cf6;
+  --ifm-color-primary-lightest: #a78bfa;
+
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', ui-monospace,
+    SFMono-Regular, Menlo, monospace;
+
+  --ifm-code-font-size: 88%;
+  --ifm-code-border-radius: 4px;
+  --ifm-code-padding-vertical: 0.15rem;
+  --ifm-code-padding-horizontal: 0.35rem;
+
+  --ifm-heading-font-weight: 600;
+  --ifm-h1-font-size: 2.25rem;
+  --ifm-h2-font-size: 1.625rem;
+  --ifm-h3-font-size: 1.25rem;
+
+  --docusaurus-highlighted-code-line-bg: rgba(124, 58, 237, 0.12);
+}
+
+[data-theme='dark'] {
+  /* Brand surfaces */
+  --ifm-background-color: #07080c;
+  --ifm-background-surface-color: #0f1117;
+  --ifm-color-content: #f1f5f9;
+  --ifm-color-content-secondary: #94a3b8;
+
+  /* Accents */
+  --ifm-color-primary: #7c3aed;
+  --ifm-color-primary-dark: #6d28d9;
+  --ifm-color-primary-darker: #5b21b6;
+  --ifm-color-primary-darkest: #4c1d95;
+  --ifm-color-primary-light: #a78bfa;
+  --ifm-color-primary-lighter: #c4b5fd;
+  --ifm-color-primary-lightest: #ddd6fe;
+
+  /* Surfaces */
+  --ifm-navbar-background-color: rgba(7, 8, 12, 0.85);
+  --ifm-footer-background-color: #0f1117;
+  --ifm-menu-color-background-active: rgba(124, 58, 237, 0.12);
+  --ifm-menu-color-background-hover: rgba(124, 58, 237, 0.08);
+
+  /* Code blocks — matches webapp's mono/dim feel */
+  --ifm-code-background: #131520;
+  --prism-background-color: #0f1117;
+
+  /* Borders + dividers */
+  --ifm-toc-border-color: #1e2235;
+  --ifm-color-emphasis-200: #1e2235;
+  --ifm-color-emphasis-300: #2a2f48;
+
+  --docusaurus-highlighted-code-line-bg: rgba(124, 58, 237, 0.18);
+}
+
+/* Subtle navbar bottom border that reads as a hairline rather than a line */
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  backdrop-filter: blur(8px);
+}
+
+/* Inline code: dim chip on dark, soft on light */
+[data-theme='dark'] code {
+  background: #131520;
+  border: 1px solid #1e2235;
+  color: #c4b5fd;
+}
+
+/* Headings tighter on dark for builder-doc feel */
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3 {
+  letter-spacing: -0.01em;
+}
+
+/* Footer alignment to brand surface */
+[data-theme='dark'] .footer {
+  border-top: 1px solid var(--ifm-toc-border-color);
+}

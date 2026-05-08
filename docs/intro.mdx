@@ -1,0 +1,33 @@
+---
+sidebar_position: 1
+title: Welcome
+description: Enclz is on-chain spend policy for AI agents on Solana. The smart contract is the policy.
+---
+
+# Welcome to Enclz
+
+Enclz is **on-chain spend policy** for AI agents on Solana. Per-tx, daily, and hourly caps plus TTL- and amount-capped recipient whitelists are enforced by an Anchor program — so a hallucinating, prompt-injected, or compromised agent can never exceed what you approved.
+
+Agents authenticate with a scoped API key. They never hold a private key. Limits hold even if the backend is breached.
+
+## What this site covers
+
+- **Concepts** — the policy ceiling, the whitelist categories, the on-chain enforcement model.
+- **Quickstart** — provision a group, add an agent, hand it a scoped API key, watch a transfer get approved or denied on-chain.
+- **API reference** — Agent REST API and Orchestrator API.
+- **MCP server** — drop-in tool integration for Claude, Cursor, and any MCP runtime.
+- **SDK** — `@enclz/sdk` for direct on-chain callers, IDL access, and program ID.
+
+## Status
+
+Devnet beta. Mainnet target: mid-May 2026. The orchestrator dashboard is live at [enclz.com](https://enclz.com).
+
+## Where to start
+
+- New to the project? Start with concepts and the quickstart (coming soon).
+- Wiring up an AI agent through MCP or `AGENT_SKILL.md`? Skip ahead to the Agent REST API reference.
+- Auditing the on-chain mechanics? The source of truth is the [Anchor program](https://github.com/enclz/solana) and the [SPECIFICATION.md](https://github.com/enclz/.github/blob/main/SPECIFICATION.md) in the org repo.
+
+:::note
+This documentation site is fresh. The full spec lives at [`enclz/.github`](https://github.com/enclz/.github) and will be ported here over the coming weeks.
+:::
