@@ -110,17 +110,17 @@ The agent now has tools to transfer, swap, deposit, withdraw, simulate, check ba
 
 See [MCP server](../integration/mcp-server) for the full tool list.
 
-## Path C — `AGENT_SKILL.md`
+## Path C — `SKILL.md`
 
-If your agent uses Claude Skills or any LLM context-injection system, drop our `AGENT_SKILL.md` into the agent's skill set. It's a single markdown file that teaches the LLM how to call the Agent REST API directly:
+If your agent uses Claude Skills or any LLM context-injection system, drop our `SKILL.md` into the agent's skill set. It's a single markdown file that teaches the LLM how to call the Agent REST API directly:
 
 ```bash
-curl -O https://raw.githubusercontent.com/enclz/.github/main/AGENT_SKILL.md
+curl -O https://enclz.com/SKILL.md
 ```
 
 No SDK, no glue code. The LLM reads the skill, knows the endpoints and the error semantics, and calls the API with `fetch` or its language-of-choice equivalent.
 
-See [AGENT_SKILL.md](../integration/agent-skill) for embedding instructions.
+See [SKILL.md](../integration/agent-skill) for embedding instructions.
 
 ## Simulate before committing
 

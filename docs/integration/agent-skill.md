@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
-title: AGENT_SKILL.md
+title: SKILL.md
 description: A single markdown file that teaches any LLM how to use Enclz — no SDK, no glue code.
 ---
 
-# `AGENT_SKILL.md`
+# `SKILL.md`
 
-`AGENT_SKILL.md` is a single markdown file written for LLM consumption. Drop it into your agent's skill set or system prompt and the LLM knows how to call the Agent REST API directly using whatever HTTP primitive it has access to.
+`SKILL.md` is a single markdown file written for LLM consumption. Drop it into your agent's skill set or system prompt and the LLM knows how to call the Agent REST API directly using whatever HTTP primitive it has access to.
 
 This is the integration path for agents that don't run in an MCP runtime — pure-Python agents, custom frameworks, server-side LangChain workflows, anything that just needs HTTP context.
 
@@ -15,12 +15,12 @@ This is the integration path for agents that don't run in an MCP runtime — pur
 Canonical source:
 
 ```bash
-curl -O https://raw.githubusercontent.com/enclz/.github/main/AGENT_SKILL.md
+curl -O https://enclz.com/SKILL.md
 ```
 
-Or read it directly: [AGENT_SKILL.md on GitHub](https://github.com/enclz/.github/blob/main/AGENT_SKILL.md).
+Or read it directly: [SKILL.md](https://enclz.com/SKILL.md).
 
-The file is part of the `enclz/.github` repo and tracks the live API. Pull it fresh when you bump versions of your agent.
+The file is served from the Enclz webapp and tracks the live API. Pull it fresh when you bump versions of your agent.
 
 ## How to use it
 
@@ -32,21 +32,21 @@ Save it to your skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills/enclz-payments
-cp AGENT_SKILL.md ~/.claude/skills/enclz-payments/SKILL.md
+cp SKILL.md ~/.claude/skills/enclz-payments/SKILL.md
 ```
 
 Claude auto-discovers it on next session start.
 
 ### As a system-prompt include
 
-Many agent frameworks let you compose a system prompt from multiple markdown files. Add `AGENT_SKILL.md` to that list:
+Many agent frameworks let you compose a system prompt from multiple markdown files. Add `SKILL.md` to that list:
 
 ```python
 # LangChain example
 from langchain.prompts import SystemMessagePromptTemplate
 
 system = SystemMessagePromptTemplate.from_template(
-    open("AGENT_SKILL.md").read() + "\n\n" + your_other_prompt
+    open("SKILL.md").read() + "\n\n" + your_other_prompt
 )
 ```
 
@@ -58,7 +58,7 @@ If your framework has a more structured tool-definition system, the markdown can
 tools = [
     {
         "name": "enclz_api",
-        "description": open("AGENT_SKILL.md").read(),
+        "description": open("SKILL.md").read(),
         "input_schema": {
             "type": "object",
             "properties": {
@@ -102,8 +102,8 @@ If you specifically want types and an installer, see the [SDK page](./sdk) — `
 
 ## Embedding inline (advanced)
 
-If your agent's runtime can't fetch from the internet, you can embed `AGENT_SKILL.md` inline in your prompt as a literal string. We don't recommend this for production — you'll be pinned to whatever version you embedded — but it works.
+If your agent's runtime can't fetch from the internet, you can embed `SKILL.md` inline in your prompt as a literal string. We don't recommend this for production — you'll be pinned to whatever version you embedded — but it works.
 
 ## Versioning
 
-The file is tracked at `enclz/.github` HEAD on main. We don't (yet) version the skill explicitly. If the API changes in a non-backward-compatible way, the file changes, and we'll announce on [x.com/enclzai](https://x.com/enclzai).
+The file is served from `https://enclz.com/SKILL.md` and tracks the live API. We don't (yet) version the skill explicitly. If the API changes in a non-backward-compatible way, the file changes, and we'll announce on [x.com/enclzai](https://x.com/enclzai).
