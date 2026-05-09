@@ -84,4 +84,4 @@ The dashboard now shows real-time on-chain state for the group:
 
 - [Add external recipients to the whitelist](../webapp/whitelist)
 - [Set up webhooks](../integration/webhooks) so your backend gets notified on confirmed transfers and policy events
-- [Hand the agent an `AGENT_SKILL.md`](../integration/agent-skill) so its LLM context knows how to use Enclz
+- [Hand the agent a `SKILL.md`](../integration/agent-skill) so its LLM context knows how to use Enclz
