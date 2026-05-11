@@ -1,98 +1,406 @@
 /**
- * Enclz documentation theme — derived from the webapp brand kit.
- * Dark-first; light mode kept as a polite fallback rather than a primary surface.
+ * Enclz documentation theme — paper palette, terracotta accent.
+ * Mirrors the webapp's `src/index.css` token system so the docs site reads
+ * as the same product. Light is the default surface (matches the marketing
+ * site); dark is a warm-near-black, not slate.
  *
- * Tokens (see webapp tailwind.config.js):
- *   bg          #07080c   surface     #0f1117   card        #131520
- *   border      #1e2235   accent      #7c3aed   accent-lt   #a78bfa
- *   text        #f1f5f9   text-2nd    #94a3b8   text-muted  #4b5563
+ * Tokens are RGB triples so Infima's hex-flat plumbing can still work and
+ * any custom components on this site can use `rgb(var(--enclz-*) / <alpha>)`.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,401,501,601,701&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-:root {
-  /* Light mode — readable but not the canonical surface */
-  --ifm-color-primary: #6d28d9;
-  --ifm-color-primary-dark: #5b21b6;
-  --ifm-color-primary-darker: #4c1d95;
-  --ifm-color-primary-darkest: #3b0764;
-  --ifm-color-primary-light: #7c3aed;
-  --ifm-color-primary-lighter: #8b5cf6;
-  --ifm-color-primary-lightest: #a78bfa;
+:root,
+[data-theme='light'] {
+  /* ── Enclz tokens (light: warm paper) ─────────────────────────── */
+  --enclz-bg: 250 247 242;
+  --enclz-surface: 255 255 255;
+  --enclz-card: 255 252 247;
+  --enclz-border: 232 225 213;
+  --enclz-accent: 200 85 61;
+  --enclz-accent-light: 220 119 98;
+  --enclz-accent-dim: 245 220 210;
+  --enclz-success: 46 111 94;
+  --enclz-success-dim: 220 235 226;
+  --enclz-warning: 184 132 42;
+  --enclz-danger: 163 58 79;
+  --enclz-text-primary: 20 17 14;
+  --enclz-text-secondary: 107 98 89;
+  --enclz-text-muted: 142 132 119;
 
-  --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+  /* ── Infima mappings ──────────────────────────────────────────── */
+  --ifm-background-color: rgb(var(--enclz-bg));
+  --ifm-background-surface-color: rgb(var(--enclz-surface));
+  --ifm-color-content: rgb(var(--enclz-text-primary));
+  --ifm-color-content-secondary: rgb(var(--enclz-text-secondary));
+  --ifm-color-emphasis-100: rgb(var(--enclz-card));
+  --ifm-color-emphasis-200: rgb(var(--enclz-border));
+  --ifm-color-emphasis-300: rgb(var(--enclz-border));
+  --ifm-color-emphasis-600: rgb(var(--enclz-text-muted));
+  --ifm-color-emphasis-700: rgb(var(--enclz-text-secondary));
+  --ifm-color-emphasis-900: rgb(var(--enclz-text-primary));
+
+  --ifm-color-primary: rgb(var(--enclz-accent));
+  --ifm-color-primary-dark: rgb(184 62 42);
+  --ifm-color-primary-darker: rgb(170 56 36);
+  --ifm-color-primary-darkest: rgb(140 44 26);
+  --ifm-color-primary-light: rgb(var(--enclz-accent-light));
+  --ifm-color-primary-lighter: rgb(225 138 117);
+  --ifm-color-primary-lightest: rgb(var(--enclz-accent-dim));
+
+  --ifm-link-color: rgb(var(--enclz-accent));
+  --ifm-link-hover-color: rgb(184 62 42);
+
+  --ifm-font-family-base: 'Switzer', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, sans-serif;
   --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', ui-monospace,
     SFMono-Regular, Menlo, monospace;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-heading-font-weight: 700;
+  --ifm-heading-color: rgb(var(--enclz-text-primary));
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 1.75rem;
+  --ifm-h3-font-size: 1.25rem;
+  --ifm-line-height-base: 1.65;
+  --ifm-font-size-base: 17px;
 
-  --ifm-code-font-size: 88%;
+  --ifm-code-font-size: 90%;
+  --ifm-code-background: rgb(var(--enclz-card));
+  --ifm-code-color: rgb(var(--enclz-accent));
   --ifm-code-border-radius: 4px;
   --ifm-code-padding-vertical: 0.15rem;
   --ifm-code-padding-horizontal: 0.35rem;
 
-  --ifm-heading-font-weight: 600;
-  --ifm-h1-font-size: 2.25rem;
-  --ifm-h2-font-size: 1.625rem;
-  --ifm-h3-font-size: 1.25rem;
+  --ifm-navbar-background-color: rgb(var(--enclz-surface) / 0.92);
+  --ifm-navbar-link-color: rgb(var(--enclz-text-secondary));
+  --ifm-navbar-link-hover-color: rgb(var(--enclz-text-primary));
+  --ifm-footer-background-color: rgb(var(--enclz-surface));
+  --ifm-footer-color: rgb(var(--enclz-text-secondary));
+  --ifm-footer-link-color: rgb(var(--enclz-text-secondary));
+  --ifm-footer-link-hover-color: rgb(var(--enclz-accent));
+  --ifm-footer-title-color: rgb(var(--enclz-text-primary));
 
-  --docusaurus-highlighted-code-line-bg: rgba(124, 58, 237, 0.12);
+  --ifm-menu-color: rgb(var(--enclz-text-secondary));
+  --ifm-menu-color-active: rgb(var(--enclz-accent));
+  --ifm-menu-color-background-active: rgb(var(--enclz-accent) / 0.1);
+  --ifm-menu-color-background-hover: rgb(var(--enclz-accent) / 0.05);
+
+  --ifm-toc-border-color: rgb(var(--enclz-border));
+  --ifm-color-emphasis-0: rgb(var(--enclz-bg));
+  --ifm-hero-background-color: rgb(var(--enclz-bg));
+  --ifm-hero-text-color: rgb(var(--enclz-text-primary));
+
+  --ifm-blockquote-color: rgb(var(--enclz-text-secondary));
+  --ifm-blockquote-border-color: rgb(var(--enclz-accent));
+  --ifm-table-border-color: rgb(var(--enclz-border));
+  --ifm-table-stripe-background: rgb(var(--enclz-card));
+  --ifm-table-head-background: rgb(var(--enclz-card));
+
+  --docusaurus-highlighted-code-line-bg: rgb(var(--enclz-accent) / 0.1);
 }
 
 [data-theme='dark'] {
-  /* Brand surfaces */
-  --ifm-background-color: #07080c;
-  --ifm-background-surface-color: #0f1117;
-  --ifm-color-content: #f1f5f9;
-  --ifm-color-content-secondary: #94a3b8;
+  --enclz-bg: 16 13 10;
+  --enclz-surface: 26 22 18;
+  --enclz-card: 32 27 22;
+  --enclz-border: 56 47 38;
+  --enclz-accent: 220 119 98;
+  --enclz-accent-light: 235 156 138;
+  --enclz-accent-dim: 73 36 27;
+  --enclz-success: 110 174 152;
+  --enclz-success-dim: 36 65 56;
+  --enclz-warning: 220 165 75;
+  --enclz-danger: 200 95 115;
+  --enclz-text-primary: 245 240 232;
+  --enclz-text-secondary: 192 178 160;
+  --enclz-text-muted: 128 116 102;
 
-  /* Accents */
-  --ifm-color-primary: #7c3aed;
-  --ifm-color-primary-dark: #6d28d9;
-  --ifm-color-primary-darker: #5b21b6;
-  --ifm-color-primary-darkest: #4c1d95;
-  --ifm-color-primary-light: #a78bfa;
-  --ifm-color-primary-lighter: #c4b5fd;
-  --ifm-color-primary-lightest: #ddd6fe;
+  --ifm-color-primary: rgb(var(--enclz-accent));
+  --ifm-color-primary-dark: rgb(var(--enclz-accent));
+  --ifm-color-primary-darker: rgb(200 95 75);
+  --ifm-color-primary-darkest: rgb(170 75 55);
+  --ifm-color-primary-light: rgb(var(--enclz-accent-light));
+  --ifm-color-primary-lighter: rgb(245 175 158);
+  --ifm-color-primary-lightest: rgb(255 200 185);
 
-  /* Surfaces */
-  --ifm-navbar-background-color: rgba(7, 8, 12, 0.85);
-  --ifm-footer-background-color: #0f1117;
-  --ifm-menu-color-background-active: rgba(124, 58, 237, 0.12);
-  --ifm-menu-color-background-hover: rgba(124, 58, 237, 0.08);
+  --ifm-code-background: rgb(var(--enclz-card));
+  --ifm-code-color: rgb(var(--enclz-accent-light));
+  --ifm-navbar-background-color: rgb(var(--enclz-bg) / 0.9);
+  --ifm-footer-background-color: rgb(var(--enclz-surface));
+  --ifm-hero-background-color: rgb(var(--enclz-bg));
 
-  /* Code blocks — matches webapp's mono/dim feel */
-  --ifm-code-background: #131520;
-  --prism-background-color: #0f1117;
-
-  /* Borders + dividers */
-  --ifm-toc-border-color: #1e2235;
-  --ifm-color-emphasis-200: #1e2235;
-  --ifm-color-emphasis-300: #2a2f48;
-
-  --docusaurus-highlighted-code-line-bg: rgba(124, 58, 237, 0.18);
+  --docusaurus-highlighted-code-line-bg: rgb(var(--enclz-accent) / 0.15);
 }
 
-/* Subtle navbar bottom border that reads as a hairline rather than a line */
+/* ── Base type rhythm ─────────────────────────────────────────── */
+
+html {
+  font-feature-settings: 'ss01', 'ss02';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 {
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+/* Markdown content gets the same line-height as the dashboard body */
+.markdown {
+  line-height: 1.7;
+}
+
+/* ── Navbar — hairline border, no shadow ──────────────────────── */
+
 .navbar {
-  border-bottom: 1px solid var(--ifm-toc-border-color);
+  border-bottom: 1px solid rgb(var(--enclz-border));
+  box-shadow: none;
   backdrop-filter: blur(8px);
 }
 
-/* Inline code: dim chip on dark, soft on light */
-[data-theme='dark'] code {
-  background: #131520;
-  border: 1px solid #1e2235;
-  color: #c4b5fd;
-}
-
-/* Headings tighter on dark for builder-doc feel */
-[data-theme='dark'] h1,
-[data-theme='dark'] h2,
-[data-theme='dark'] h3 {
+.navbar__title {
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-/* Footer alignment to brand surface */
-[data-theme='dark'] .footer {
-  border-top: 1px solid var(--ifm-toc-border-color);
+.navbar__brand {
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar__logo {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.navbar__link {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ── Sidebar — terracotta active rail (mirrors dashboard) ─────── */
+
+.menu__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  position: relative;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  color: rgb(var(--enclz-accent));
+  background: rgb(var(--enclz-accent) / 0.1);
+  font-weight: 500;
+}
+
+.menu__link--active:not(.menu__link--sublist)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 3px;
+  border-radius: 2px;
+  background: rgb(var(--enclz-accent));
+}
+
+.menu__caret::before,
+.menu__link--sublist-caret::after {
+  filter: opacity(0.6);
+}
+
+/* ── Inline code — terracotta chip on paper card ──────────────── */
+
+code {
+  background: rgb(var(--enclz-card));
+  border: 1px solid rgb(var(--enclz-border));
+  color: rgb(var(--enclz-accent));
+  padding: 0.12rem 0.35rem;
+}
+
+/* Don't double-frame code inside fenced blocks */
+pre code {
+  background: transparent !important;
+  border: 0 !important;
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+div[class*='codeBlockContainer'] {
+  border: 1px solid rgb(var(--enclz-border));
+  background: rgb(var(--enclz-card));
+}
+
+/* ── Buttons — paper-card primary, no Docusaurus gradient ─────── */
+
+.button {
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  border-radius: 8px;
+  transition: transform 120ms ease, box-shadow 150ms ease,
+    background-color 150ms ease;
+}
+
+.button--primary {
+  background: rgb(var(--enclz-accent));
+  border-color: rgb(var(--enclz-accent));
+  color: rgb(255 252 247);
+}
+
+.button--primary:hover {
+  background: rgb(184 62 42);
+  border-color: rgb(184 62 42);
+  color: rgb(255 252 247);
+  box-shadow: 0 8px 24px -10px rgb(var(--enclz-accent) / 0.4);
+}
+
+[data-theme='dark'] .button--primary:hover {
+  background: rgb(var(--enclz-accent-light));
+  border-color: rgb(var(--enclz-accent-light));
+  color: rgb(16 13 10);
+  box-shadow: 0 12px 32px -16px rgb(var(--enclz-accent) / 0.5);
+}
+
+.button--secondary {
+  background: rgb(var(--enclz-surface));
+  border: 1px solid rgb(var(--enclz-border));
+  color: rgb(var(--enclz-text-primary));
+}
+
+.button--secondary:hover {
+  background: rgb(var(--enclz-card));
+  border-color: rgb(var(--enclz-accent) / 0.3);
+  color: rgb(var(--enclz-text-primary));
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+
+.footer {
+  border-top: 1px solid rgb(var(--enclz-border));
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.footer__title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: rgb(var(--enclz-text-muted));
+}
+
+.footer__link-item {
+  color: rgb(var(--enclz-text-secondary));
+  transition: color 150ms ease;
+}
+
+.footer__link-item:hover {
+  color: rgb(var(--enclz-accent));
+  text-decoration: none;
+}
+
+.footer__copyright {
+  color: rgb(var(--enclz-text-muted));
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* Override Infima's footer--dark with the paper surface — the docs site
+ * uses the same surface in both light and dark, just with rotated tokens. */
+.footer--dark {
+  background: var(--ifm-footer-background-color);
+  color: var(--ifm-footer-color);
+}
+
+/* ── Pagination, breadcrumbs, ToC ─────────────────────────────── */
+
+.pagination-nav__link {
+  border-color: rgb(var(--enclz-border));
+  background: rgb(var(--enclz-card));
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: rgb(var(--enclz-accent) / 0.4);
+  background: rgb(var(--enclz-card));
+}
+
+.pagination-nav__sublabel {
+  color: rgb(var(--enclz-text-muted));
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+}
+
+.table-of-contents__link--active,
+.table-of-contents__link:hover {
+  color: rgb(var(--enclz-accent));
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: rgb(var(--enclz-accent));
+  background: rgb(var(--enclz-accent) / 0.1);
+}
+
+/* ── Admonitions — paper card style ───────────────────────────── */
+
+.alert,
+.theme-admonition {
+  border-radius: 8px;
+  border-left: 3px solid rgb(var(--enclz-accent));
+  background: rgb(var(--enclz-card));
+}
+
+/* ── Tables ───────────────────────────────────────────────────── */
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgb(var(--enclz-border));
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table thead {
+  background: rgb(var(--enclz-card));
+}
+
+table th {
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: -0.005em;
+}
+
+/* ── Scrollbar — mirrors the dashboard ────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--enclz-surface));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--enclz-border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--enclz-accent) / 0.6);
+}
+
+/* ── Selection — paper warmth ─────────────────────────────────── */
+
+::selection {
+  background: rgb(var(--enclz-accent) / 0.2);
+  color: rgb(var(--enclz-text-primary));
 }

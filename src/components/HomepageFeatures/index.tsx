@@ -4,23 +4,26 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
+  label: string;
   title: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'On-chain enforcement',
+    label: 'Enforcement',
+    title: 'On-chain, not in middleware',
     description: (
       <>
         Per-tx, daily, and hourly limits live on the <code>AgentWallet</code>{' '}
-        PDA and are enforced inside the Anchor program. No backend can override
-        them.
+        PDA. The Anchor program rejects anything outside policy — no backend
+        override exists.
       </>
     ),
   },
   {
-    title: 'TTL-bound recipient whitelist',
+    label: 'Whitelist',
+    title: 'TTL-bound recipients',
     description: (
       <>
         External recipients carry a TTL and an approved-amount cap. The{' '}
@@ -30,23 +33,27 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    label: 'Blast radius',
     title: 'No private key for the agent',
     description: (
       <>
         Agents authenticate with a scoped API key. Limits hold even if the
-        backend is breached, the agent is prompt-injected, or the API key is
+        backend is breached, the agent is prompt-injected, or the key is
         leaked.
       </>
     ),
   },
 ];
 
-function Feature({title, description}: FeatureItem) {
+function Feature({label, title, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx('col col--4', styles.featureCol)}>
+      <div className={styles.featureCard}>
+        <span className={styles.featureLabel}>{label}</span>
+        <Heading as="h3" className={styles.featureTitle}>
+          {title}
+        </Heading>
+        <p className={styles.featureDescription}>{description}</p>
       </div>
     </div>
   );
@@ -57,8 +64,8 @@ export default function HomepageFeatures(): ReactNode {
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map((props) => (
+            <Feature key={props.label} {...props} />
           ))}
         </div>
       </div>

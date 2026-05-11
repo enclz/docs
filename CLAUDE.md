@@ -35,14 +35,17 @@ sidebars.ts              # sidebar config (defaults to auto-generated)
 
 ## Theme
 
-Brand palette and typography are pulled from the webapp ([`enclz/webapp`](https://github.com/enclz/webapp), see `tailwind.config.js`). The mapping lives in `src/css/custom.css`:
+Brand palette and typography are pulled from the webapp ([`enclz/webapp`](https://github.com/enclz/webapp), see `src/index.css` + `tailwind.config.js`). The mapping lives in `src/css/custom.css` as RGB triples (so `rgb(var(--enclz-*) / <alpha>)` works for any custom components on this site).
 
-- **Surfaces**: `#07080c` (bg), `#0f1117` (surface), `#131520` (card), `#1e2235` (border)
-- **Accent**: `#7c3aed` (primary), `#a78bfa` (lighter)
-- **Text**: `#f1f5f9` (primary), `#94a3b8` (secondary), `#4b5563` (muted)
-- **Fonts**: Inter (sans), JetBrains Mono (mono) — both via Google Fonts CDN
+Light is the canonical surface (matches the marketing site at `enclz.com`). Dark is a toggle, not the default — and it's warm-near-black, not slate.
 
-**Dark mode is the default** and color scheme is *not* coupled to system preference (`respectPrefersColorScheme: false`). Light mode is kept as a fallback but the canonical surface is dark — this matches the webapp.
+- **Light surfaces**: `#FAF7F2` bg · `#FFFFFF` surface · `#FFFCF7` card · `#E8E1D5` border
+- **Dark surfaces**: `#100D0A` bg · `#1A1612` surface · `#201B16` card · `#382F26` border
+- **Accent**: `#C8553D` light / `#DC7762` dark (terracotta — brightens in dark, never darkens)
+- **Text**: warm-near-black `#14110E` / warm-off-white `#F5F0E8` (never `text-white`)
+- **Fonts**: Switzer (sans + display, via Fontshare), JetBrains Mono (mono, via Google Fonts). `ss01, ss02` stylistic sets enabled — that's where the italic swash forms come from.
+
+**Color mode** is `defaultMode: 'light'`, `respectPrefersColorScheme: false`. Both modes use the same paper signature, just rotated tokens — keep that contract.
 
 When updating brand tokens, change them in **one place** (`src/css/custom.css`) and let Infima's CSS variables flow. Don't sprinkle hard-coded hex values across components.
 
