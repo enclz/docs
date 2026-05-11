@@ -1,32 +1,41 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+function HomepageHero() {
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+    <header className={styles.heroBanner}>
+      <div className={clsx('container', styles.heroContainer)}>
+        <p className={styles.heroEyebrow}>Live on Solana Devnet</p>
+        <h1 className={styles.heroTitle}>
+          On-chain spend policy{' '}
+          <span className={styles.heroAccent}>for agents.</span>
+        </h1>
+        <p className={styles.heroSubtitle}>
+          Per-tx, daily, and recipient limits enforced by an Anchor program.
+          Limits hold even if the backend is breached, the agent is
+          prompt-injected, or its API key is leaked.
+        </p>
         <div className={styles.buttons}>
           <Link className="button button--primary button--lg" to="/docs/intro">
             Get started
           </Link>
           <Link
             className="button button--secondary button--lg"
-            href="https://github.com/enclz/solana"
-            style={{marginLeft: '0.75rem'}}>
+            href="https://github.com/enclz/solana">
             View on GitHub
           </Link>
+        </div>
+        <div className={styles.metaRow}>
+          <span className={styles.metaItem}>
+            Program <code>45PiBcnk…AFaLW</code>
+          </span>
+          <span className={styles.metaItem}>SKILL.md ready</span>
+          <span className={styles.metaItem}>MCP · REST · Webhooks</span>
         </div>
       </div>
     </header>
@@ -34,12 +43,11 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title="Enclz Docs"
       description="On-chain spend policy for AI agents on Solana. Per-tx, daily, and recipient limits enforced by an Anchor program — limits hold even if the backend is breached.">
-      <HomepageHeader />
+      <HomepageHero />
       <main>
         <HomepageFeatures />
       </main>

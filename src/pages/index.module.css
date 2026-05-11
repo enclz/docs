@@ -1,23 +1,112 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+/* Paper hero — mirrors the dashboard signature.
+ *
+ * Italic-punctuation-noun in the H1 ("on the chain.") + a single
+ * subhead in muted text + two-button CTA row. No gradient, no
+ * centered display flex — left-aligned at desktop width.
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  padding: 6rem 0 5rem;
+  background: var(--ifm-hero-background-color);
+  border-bottom: 1px solid rgb(var(--enclz-border));
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroContainer {
+  max-width: 880px;
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--enclz-text-muted));
+  margin-bottom: 1.25rem;
+}
+
+.heroEyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(var(--enclz-success));
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: rgb(var(--enclz-text-primary));
+  margin: 0 0 1.25rem;
+}
+
+.heroAccent {
+  color: rgb(var(--enclz-accent));
+  font-style: italic;
+  font-weight: 700;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: rgb(var(--enclz-text-secondary));
+  max-width: 640px;
+  margin: 0 0 2rem;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
+}
+
+.buttons :global(.button) {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.metaRow {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  font-size: 0.8rem;
+  color: rgb(var(--enclz-text-muted));
+  letter-spacing: 0.04em;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.metaItem code {
+  text-transform: none;
+  letter-spacing: 0;
+  background: rgb(var(--enclz-card));
+  border: 1px solid rgb(var(--enclz-border));
+  color: rgb(var(--enclz-text-secondary));
+  font-size: 0.75rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+@media (max-width: 996px) {
+  .heroBanner {
+    padding: 3.5rem 0 3rem;
+  }
+  .heroTitle {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
 }

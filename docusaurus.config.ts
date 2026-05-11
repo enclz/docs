@@ -53,12 +53,12 @@ const config: Config = {
   themeConfig: {
     image: 'img/social-card.png',
     metadata: [
-      {name: 'theme-color', content: '#07080c'},
-      {name: 'color-scheme', content: 'dark light'},
+      {name: 'theme-color', content: '#faf7f2'},
+      {name: 'color-scheme', content: 'light dark'},
       {name: 'twitter:site', content: '@enclzai'},
     ],
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
       respectPrefersColorScheme: false,
     },
     navbar: {
@@ -88,7 +88,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       logo: {
         alt: 'Enclz',
         src: 'img/logo.png',

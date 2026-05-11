@@ -1,11 +1,64 @@
+/* Feature cards — paper surface, terracotta label, mirrors the dashboard's
+ * 2×2 stat-card pattern at the homepage scale. */
+
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 4rem 0 5rem;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.featureCol {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  width: 100%;
+  background: rgb(var(--enclz-card));
+  border: 1px solid rgb(var(--enclz-border));
+  border-radius: 12px;
+  transition: border-color 180ms ease, transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.featureCard:hover {
+  border-color: rgb(var(--enclz-accent) / 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -16px rgb(var(--enclz-accent) / 0.18);
+}
+
+.featureLabel {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(var(--enclz-accent));
+  padding: 0.18rem 0.55rem;
+  border: 1px solid rgb(var(--enclz-accent) / 0.3);
+  border-radius: 999px;
+  background: rgb(var(--enclz-accent) / 0.08);
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: rgb(var(--enclz-text-primary));
+  margin: 0;
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgb(var(--enclz-text-secondary));
+  margin: 0;
+}
+
+.featureDescription code {
+  font-size: 0.85em;
+  padding: 0.05rem 0.3rem;
 }
