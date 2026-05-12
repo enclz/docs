@@ -61,7 +61,7 @@ Click **Deploy Agent**. Two things happen:
 
 The success page shows the invitation code:
 
-![Agent created with invitation code](/img/screenshots/agent-created-invitation.png)
+{/* TODO(screenshot): /img/screenshots/agent-created-invitation.png — Agent created with invitation code */}
 
 The page shows:
 

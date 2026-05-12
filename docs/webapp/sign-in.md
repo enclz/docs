@@ -14,7 +14,7 @@ Enclz uses [Sign-in-with-Solana](https://github.com/anza-xyz/wallet-standard/blo
 
 Land on [enclz.com/signin](https://enclz.com/signin) and click **Choose Wallet**. The wallet picker shows every Wallet Standard-compatible wallet detected in your browser:
 
-![Wallet picker](/img/screenshots/wallet-picker.png)
+{/* TODO(screenshot): /img/screenshots/wallet-picker.png — Wallet picker */}
 
 Solflare is the recommended option (it's listed first as "RECOMMENDED"). Phantom, Backpack, and any other Wallet Standard wallet are detected automatically.
 
@@ -24,7 +24,7 @@ If you don't have one, click **Get it** and install Solflare (the official Solan
 
 After picking the wallet, the connect dialog runs. Once connected, the page transitions to:
 
-![Sign and authenticate prompt](/img/screenshots/signin-authenticate.png)
+{/* TODO(screenshot): /img/screenshots/signin-authenticate.png — Sign and authenticate prompt */}
 
 Click **Sign & Authenticate**. Your wallet pops a signature prompt with the SIWS message, which looks like:
 

@@ -17,11 +17,11 @@ We're going to provision a fleet group, add one agent to it, and walk away with 
 
 Go to [enclz.com/signin](https://enclz.com/signin) and click **Choose Wallet**. The wallet picker shows Solflare by default; any Wallet Standard wallet (Phantom, Backpack, Solflare) is also detected.
 
-![Wallet picker](/img/screenshots/wallet-picker.png)
+{/* TODO(screenshot): /img/screenshots/wallet-picker.png — Wallet picker */}
 
 Pick your wallet, approve the connection, then click **Sign & Authenticate**. This signs a [Sign-in-with-Solana](https://github.com/anza-xyz/wallet-standard/blob/master/packages/core/wallet-standard-features/src/signIn.md) (SIWS) message — no password, no email.
 
-![Sign and authenticate prompt](/img/screenshots/signin-authenticate.png)
+{/* TODO(screenshot): /img/screenshots/signin-authenticate.png — Sign and authenticate prompt */}
 
 If this is your first sign-in, the app routes you to the group setup wizard. If you already have a group, it goes straight to your fleet dashboard.
 
@@ -29,13 +29,13 @@ If this is your first sign-in, the app routes you to the group setup wizard. If 
 
 The wizard has two steps: name the group, review.
 
-![Create a Fleet Group — step 1](/img/screenshots/setup-wizard-step1-filled.png)
+{/* TODO(screenshot): /img/screenshots/setup-wizard-step1-filled.png — Create a Fleet Group, step 1 with name filled in */}
 
 The group name is stored on-chain as a fixed 32-byte UTF-8 array; longer names are silently truncated. Pick something short and memorable.
 
 Review screen shows what you're about to write to chain:
 
-![Create a Fleet Group — step 2 review](/img/screenshots/setup-wizard-step2-review.png)
+{/* TODO(screenshot): /img/screenshots/setup-wizard-step2-review.png — Create a Fleet Group, review step */}
 
 Click **Create Group** and your wallet signs an `initialize_group` instruction. Devnet confirms in a couple of seconds. You land on the fleet dashboard.
 
@@ -52,7 +52,7 @@ The agent wizard has four steps:
 
 When the transaction confirms, the app mints a *one-time invitation code* for the agent and shows it once:
 
-![Agent created with invitation code](/img/screenshots/agent-created-invitation.png)
+{/* TODO(screenshot): /img/screenshots/agent-created-invitation.png — Agent created with invitation code */}
 
 **Copy this code now.** It exchanges for the agent's API key on first use, and the page won't show it again. If you lose it, you can rotate via the agent's settings page.
 
@@ -78,7 +78,7 @@ See [Agent quickstart](./agent) for the agent-side flow.
 
 The dashboard now shows real-time on-chain state for the group:
 
-![Fleet dashboard with one agent](/img/screenshots/dashboard-with-agent.png)
+{/* TODO(screenshot): /img/screenshots/dashboard-with-agent.png — Fleet dashboard with one agent */}
 
 ## Next
 

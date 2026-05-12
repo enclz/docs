@@ -12,7 +12,7 @@ The group setup wizard fires automatically the first time you sign in.
 
 ## Step 1 — name the group
 
-![Create a Fleet Group — step 1](/img/screenshots/setup-wizard-step1.png)
+{/* TODO(screenshot): /img/screenshots/setup-wizard-step1.png — Create a Fleet Group, step 1 (name input, empty) */}
 
 Constraints:
 
@@ -21,13 +21,13 @@ Constraints:
 
 Pick something memorable. The name shows up in the dashboard header, in webhook payloads, and in any audit memo that references the group.
 
-![Group name filled in](/img/screenshots/setup-wizard-step1-filled.png)
+{/* TODO(screenshot): /img/screenshots/setup-wizard-step1-filled.png — Group name filled in */}
 
 Click **Continue** when ready.
 
 ## Step 2 — review and create
 
-![Create a Fleet Group — review step](/img/screenshots/setup-wizard-step2-review.png)
+{/* TODO(screenshot): /img/screenshots/setup-wizard-step2-review.png — Create a Fleet Group, review step */}
 
 The review screen shows what's about to be written to chain:
 
