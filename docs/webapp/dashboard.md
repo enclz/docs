@@ -8,7 +8,7 @@ description: Real-time on-chain state for your group — active agents, spend, t
 
 The fleet dashboard is the home screen after sign-in. URL: `enclz.com/group/<group_pda>`. Permalink-shareable, but only the owning wallet can view it.
 
-![Fleet dashboard with one agent](/img/screenshots/dashboard-with-agent.png)
+{/* TODO(screenshot): /img/screenshots/dashboard-with-agent.png — Fleet dashboard with one agent */}
 
 ## What's on the page
 
