@@ -12,8 +12,9 @@ function HomepageHero() {
       <div className={clsx('container', styles.heroContainer)}>
         <p className={styles.heroEyebrow}>Live on Solana Devnet</p>
         <h1 className={styles.heroTitle}>
-          On-chain spend policy{' '}
-          <span className={styles.heroAccent}>for agents.</span>
+          The missing{' '}
+          <span className={styles.heroAccent}>security layer</span>
+          {' '}between AI agents and Solana.
         </h1>
         <p className={styles.heroSubtitle}>
           Per-tx, daily, and recipient limits enforced by an Anchor program.
@@ -46,7 +47,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="Enclz Docs"
-      description="On-chain spend policy for AI agents on Solana. Per-tx, daily, and recipient limits enforced by an Anchor program — limits hold even if the backend is breached.">
+      description="The missing security layer between AI agents and Solana. Per-tx, daily, and recipient limits enforced by an Anchor program — limits hold even if the backend is breached.">
       <HomepageHero />
       <main>
         <HomepageFeatures />
